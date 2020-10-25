@@ -4,9 +4,6 @@ from collections import Counter
 import os
 
 
-
-#note this code is quite modular as I prefer it this way it looks cleaner and allows me to make quick changes that can affect the entire program
-
 #Dict with class name as key and the prefix as value to make the program more dynamic
 classes = {'A': '0', 'B': '10', 'C': '110', 'D': '1110', 'E': '1111'}
 
@@ -36,8 +33,6 @@ class_info = {'A':{
 
 #this function takes an ip as a parameter and returns stats based on the ip
 def get_class_stat(ip_addr):
-    #split the ip into a list based on the character "." there is a flaw here for ips with a ":" char
-    #convert the ip list into its binary counter-part
     binary = convert_to_binary(ip_addr)
 
     #check the prefix of the first element in binary to get class
@@ -46,7 +41,6 @@ def get_class_stat(ip_addr):
     hosts = check_hosts(class_type)
     addresses = get_range(class_type)
     firstAddress, lastAddress = addresses[0], addresses[1]
-    #print('class: {}\nnetworks: {}\nhosts: {}\nfirst address: {}\nlast address: {}'.format(class_type, networks, hosts, firstAddress, lastAddress))
     return(class_type, networks, hosts, firstAddress, lastAddress)
 
 
@@ -132,9 +126,6 @@ def get_subnet_stats(ip_addr, subnet_mask):
     cidr = count_ones(sub_bin)
     address = ip_addr + "/" + str(cidr)
     f_addr, l_addr, valid_subs, v_host, nets, b_addrs = calculate_subnets(b_ip, cidr, sub_bin)
-    #print("Address: {}\nSubnets: {}\nAddressable Hosts per subnet: {}\nValid Subnets: {}\n Broadcast Addresses: {}\nFirst Addresses: {}\nLast Addresses: {}".format(address, nets,
-    #v_host, valid_subs, b_addrs, f_addr, l_addr))
-
     return(address, nets,v_host, valid_subs, b_addrs, f_addr, l_addr)
 
 
@@ -161,7 +152,6 @@ def get_supernet_stats(ip_list):
 
     netmask = t.wrap(mask, 8)
     netmask = convert_decimal_dot(netmask)
-    #print("Address: {}\nNetwork Mask: {}".format(supernet, netmask))
     return(supernet, netmask)
     
 
@@ -208,7 +198,6 @@ def get_first_addrs(net, inc, networks, ip_class, cidr):
 
     if ip_class == "A":
         net_chunk = None
-        print(net)
         #while i <= networks:
     
     
@@ -248,7 +237,6 @@ def get_last_addrs(net, inc, networks, ip_class, cidr):
 
     if ip_class == "A":
         net_chunk = None
-        print(net)
         #while i <= networks:
     
     if ip_class == "B" and int(cidr) <= 23:
@@ -328,7 +316,6 @@ def get_broadcast_addrs(net, inc, networks, ip_class, cidr):
 
     if ip_class == "A":
         net_chunk = None
-        print(net)
         #while i <= networks:
     if ip_class == "B" and int(cidr) <= 23:
         inc = inc // 256
