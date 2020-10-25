@@ -18,9 +18,13 @@ you can quit the program by clicking the "QUIT" button which will exit the progr
 each entry field has an example input for the user to get an idea of how to input their data eg: supernet: "192.168.10.0,192.168.10.1....."
 
 required libraries:
+
 Tkinter python 3
+
 textwrap (believe this is built in)
+
 os (builtin)
+
 Collections (builtin)
 
 
