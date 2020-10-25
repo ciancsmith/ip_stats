@@ -4,7 +4,9 @@ This program is a third year assignment based on ip addresses.
 The program has 3 main functions along with some helper funtions.
 
 function 1: ip stats such as class, amount of networks and hosts and the range of that specified class
+
 function 2: subnets the ip based on the given subnet in the gui
+
 function 3: supernets a list of contigous ips does this by comparing the first and last ip
 
 The program is run through a simple gui made in tkinter.
