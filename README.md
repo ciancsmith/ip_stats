@@ -17,6 +17,13 @@ you want to calculate the subnet stats of an ip and a subnet mask. YOU MUST INPU
 you can quit the program by clicking the "QUIT" button which will exit the program
 each entry field has an example input for the user to get an idea of how to input their data eg: supernet: "192.168.10.0,192.168.10.1....."
 
+Steps to run:
+1. go to a command line and run the python program named main.py THATS IT!
+
+2. The GUI will appear and you may enter your data 
+
+
+
 required libraries:
 
 Tkinter python 3
